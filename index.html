@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Newsletter</title>
+</head>
+
+<body>
+	<form action="App/controller/CadastroController/CadastroCreate.php" method="post">
+		<div>
+			<input type="text" name="nome" placeholder="Nome">
+			<input type="email" name="email" placeholder="email@email.com">
+		</div>
+		<div>
+			<input type="tel" name="celular" placeholder="(99) 99999-9999">
+			<input type="text" name="empresa" placeholder="Empresa">
+		</div>
+		<div>
+			<select name="cargo">
+				<option value="">Desenvolvedor PHP</option>
+			</select>
+			<br>
+			<select name="setor">
+				<option value="Informatica">Informatica</option>
+			</select>
+		</div>
+		<div style="display: flex;">
+			<div>
+				<input type="submit" value="Enviar">
+			</div>
+			<div>
+				<div>
+					<input type="checkbox" name="Informacoes" checked>
+					<span>Quero receber mais informações sobre esse tema</span>
+				</div>
+				<div>
+					<input type="checkbox" name="newsLetter" checked>
+					<span>Quero Receber a NewsLetter</span>
+				</div>
+				<div>
+					<input type="checkbox" name="termosprivacidade" checked>
+					<span>Aceito os termos de serviço e li a política de privacidade. Concordo em
+						compartilhar meus dados com o organizador do evento e receber informações.</span>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+
+</html>
