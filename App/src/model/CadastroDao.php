@@ -10,7 +10,7 @@ class CadastroDao
         $stmt = Conexao::getConexao()->prepare($sql);
         $stmt->bindValue(1, $cadastro->getNome());
         $stmt->bindValue(2, $cadastro->getEmail());
-        $stmt->execute();
+        return $stmt->execute();
     }
 
     public function read()
