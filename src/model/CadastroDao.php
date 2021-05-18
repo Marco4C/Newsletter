@@ -1,6 +1,8 @@
 <?php
 
-namespace App\model;
+namespace newsletter\model;
+
+require_once __DIR__ . '/Conexao.php';
 
 class CadastroDao
 {
@@ -17,6 +19,16 @@ class CadastroDao
     {
         $sql = 'SELECT * FROM CADASTRO';
         $stmt = Conexao::getConexao()->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function search($id)
+    {
+        $sql = 'SELECT * FROM CADASTRO WHERE ID = ?';
+        $stmt = Conexao::getConexao()->prepare($sql);
+        $stmt->bindValue(1, $id);
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);

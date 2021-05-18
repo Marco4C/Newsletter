@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<form action="App/controller/CadastroController/CadastroCreate.php" method="post">
+	<form action="/novo_cadastro" method="post">
 		<div class="container">
 			<div class="row">
 				<div class="col">

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\model;
+namespace newsletter\model;
 
 class Conexao
 {
