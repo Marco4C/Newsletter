@@ -31,7 +31,6 @@ function router()
 {
     $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     $routes = routes();
-
     $matchedUri = exactMatchUriInArrayRoutes($uri, $routes);
 
     if (empty($matchedUri)) {

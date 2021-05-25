@@ -10,6 +10,6 @@ class Listar
     {
         $cadastro = new CadastroDao();
         $lista = $cadastro->read();
-        require_once __DIR__ . '\\..\\..\\..\\view\\cadastroView\\listar.php';
+        require_once __DIR__ . '\\..\\..\\view\\cadastroView\\listar.php';
     }
 }

@@ -19,6 +19,12 @@
                     <th class="col">ID</th>
                     <th class="col">Nome</th>
                     <th class="col">Email</th>
+                    <th class="col">Celular</th>
+                    <th class="col">Empresa</th>
+                    <th class="col">Cargo</th>
+                    <th class="col">Setor</th>
+                    <th class="col">Recebe informações</th>
+                    <th class="col">Recebe Newsletter</th>
                     <th class="col">Ações</th>
                 </tr>
             </thead>
@@ -36,8 +42,26 @@
                             echo $cadastro['EMAIL'];
                         echo '</td>';
                         echo '<td>';
-                            echo '<a href="/Editar?ID=' . $cadastro['ID'] . '">Editar</a>&nbsp;';
-                            echo '<a href="/Excluir/?ID=' .  $cadastro['ID'] . '">Excluir</a>';
+                            echo $cadastro['CELULAR'];
+                        echo '</td>';
+                        echo '<td>';
+                            echo $cadastro['EMPRESA'];
+                        echo '</td>';
+                        echo '<td>';
+                            echo $cadastro['CARGO'];
+                        echo '</td>';
+                        echo '<td>';
+                            echo $cadastro['SETOR'];
+                        echo '</td>';
+                        echo '<td>';
+                            echo $cadastro['RECEBE_INFORMACOES'] === '1' ? 'SIM' : 'NÃO';
+                        echo '</td>';
+                        echo '<td>';
+                            echo $cadastro['RECEBE_NEWSLETTER'] === '1' ? 'SIM' : 'NÃO';
+                        echo '</td>';
+                        echo '<td>';
+                            echo '<a href="/editar/' . $cadastro['ID'] . '" class="btn btn-info">Editar</a>&nbsp;';
+                            echo '<a href="/excluir/' .  $cadastro['ID'] . '" class="btn btn-danger">Excluir</a>';
                         echo '</td>';
                     echo '</tr>';
                 endforeach;

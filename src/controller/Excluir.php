@@ -2,20 +2,26 @@
 
 namespace newsletter\controller;
 
+require_once __DIR__ . '\\..\\model\\Cadastro.php';
+require_once __DIR__ . '\\..\\model\\CadastroDao.php';
+
 use newsletter\model\Cadastro;
 use newsletter\model\CadastroDao;
 
-class FormEditar
+class Excluir
 {
     public function processaRequisicao()
     {
-        $id = str_replace('/editar/', '', $_SERVER['REQUEST_URI']);
+        $id = str_replace('/excluir/', '', $_SERVER['REQUEST_URI']);
+
         $cadastroDao = new CadastroDao();
         $array = $cadastroDao->search($id);
+
         $cadastro = new Cadastro();
         $cadastro->setId($array[0]['ID']);
-        $cadastro->setNome($array[0]['NOME']);
-        $cadastro->setEmail($array[0]['EMAIL']);
-        require_once __DIR__ . '\\..\\..\\..\\view\\cadastroView\\formulario-editar-cadastro.php';
+
+        echo $cadastroDao->delete($cadastro);
+        $listar = new Listar();
+        $listar->processaRequisicao();
     }
 }

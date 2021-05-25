@@ -14,33 +14,45 @@
     <form action="/cadastro_editado" method="post">
         <div class="container">
             <div class="row">
-                <input type="text" name="id" value="<?php echo $id;?>">
+                <input type="text" name="id" value="<?php echo $id;?>" style="display: none;">
                 <div class="col">
                     <input class="form-control" type="text" name="nome" placeholder="Nome"
                         value="<?php echo $cadastro->getNome();?>">
                 </div>
                 <div class="col">
-                    <input class="form-control" type="email" name="email" placeholder="email@email . com"
+                    <input class="form-control" type="email" name="email" placeholder="email@email.com"
                         value="<?php echo $cadastro->getEmail();?>">
                 </div>
             </div>
             <div class=" row">
                 <div class="col">
-                    <input class="form-control" type="tel" name="celular" placeholder="(99) 99999 - 9999">
+                    <input class="form-control" type="tel" name="celular" placeholder="(99) 99999-9999"
+                    value="<?php echo $cadastro->getCelular();?>">
                 </div>
                 <div class="col">
-                    <input class="form-control" type="text" name="empresa" placeholder="Empresa">
+                    <input class="form-control" type="text" name="empresa" placeholder="Empresa"
+                    value="<?php echo $cadastro->getEmpresa();?>">
                 </div>
             </div>
             <div class="row">
-                <div class="col">
+            <div class="col">
                     <select class="form-control" name="cargo">
-                        <option value="">Desenvolvedor PHP</option>
+                        <?php
+                        foreach ($cargos as $cargo) {
+                            $selected = $cargo['ID'] === $cadastro->getCargo() ? 'selected>' : '>';
+                            echo '<option value="' . $cargo['ID'] . '" ' . $selected . $cargo['CARGO'] . '</option>';
+                        }
+                        ?>
                     </select>
                 </div>
                 <div class="col">
-                    <select class="form-control" name="setor">
-                        <option value="Informatica">Informatica</option>
+                    <select class="form-control" name="setor" selected="<?php echo $cadastro->getSetor();?>">
+                    <?php
+                    foreach ($setores as $setor) {
+                        $selected = $setor['ID'] === $cadastro->getSetor() ? 'selected>' : '>';
+                        echo '<option value="' . $setor['ID'] . '" ' . $selected . $setor['SETOR'] . '</option>';
+                    }
+                    ?>
                     </select>
                 </div>
             </div>
@@ -50,11 +62,11 @@
                 </div>
                 <div class="col">
                     <div>
-                        <input type="checkbox" name="Informacoes" checked>
+                        <input type="checkbox" name="informacoes" checked>
                         <span>Quero receber mais informações sobre esse tema</span>
                     </div>
                     <div>
-                        <input type="checkbox" name="newsLetter" checked>
+                        <input type="checkbox" name="newsletter" checked>
                         <span>Quero Receber a NewsLetter</span>
                     </div>
                     <div>
