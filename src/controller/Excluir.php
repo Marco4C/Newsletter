@@ -23,5 +23,6 @@ class Excluir
         echo $cadastroDao->delete($cadastro);
         $listar = new Listar();
         $listar->processaRequisicao();
+        header("Location: http://localhost:8080/listar");
     }
 }
